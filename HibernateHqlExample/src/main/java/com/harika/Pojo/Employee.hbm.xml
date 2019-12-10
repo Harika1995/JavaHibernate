@@ -19,6 +19,9 @@
         </property>
     </class>
     <query name="my_query">
-    	from Employee where email:mail
+    	from Employee where email like :mail
+    </query>
+    <query name="my_query1">
+    	from Employee where eno &lt;=:num
     </query>
 </hibernate-mapping>
