@@ -24,4 +24,5 @@
     <query name="my_query1">
     	from Employee where eno &lt;=:num
     </query>
+    
 </hibernate-mapping>

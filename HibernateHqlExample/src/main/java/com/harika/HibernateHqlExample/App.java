@@ -46,5 +46,10 @@ public class App
         for(Employee emp_const:result) {
         	System.out.println(emp_const.getEno()+"\t"+emp_const.getFirstName()+"\t"+emp_const.getLastName()+"\t"+emp_const.getEmail());
         }
+        Query query_constructor1 = ses.createQuery("select new Employee(firstName,lastName) from Employee");
+        List<Employee>result1 = query_constructor1.list();
+        for(Employee emp_const1:result1) {
+        	System.out.println(emp_const1.getFirstName()+"\t"+emp_const1.getLastName());
+        }
     }
 }

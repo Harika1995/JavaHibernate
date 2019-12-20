@@ -25,6 +25,7 @@ public class Employee {
 		this.lastName = lastName;
 		this.email = email;
 	}
+	
 	public void setEno(int eno) {
 		this.eno = eno;
 	}
