@@ -39,6 +39,18 @@ public class HqlOperations {
 		 }
 		 else
 			 System.out.println("Employee FirstName is not Updated.");
-		 tx.commit();
+		 tx.commit();//we need to commit the transaction if we did not perform the select query.
+		 System.out.println("------------- This is a Aggregate Functions ----------------");
+		 System.out.println("Count of Employees");
+		 Query q3 = ses.createQuery("select count(*) from Employee");
+		 List l = q3.list();
+		 Object row = (Object)l.get(0);
+		 System.out.println("Count of Employees: "+row.toString());
+		 System.out.println("Maximum and Minimum Employee Number");
+		 Query max_min = ses.createQuery("Select max(eno),min(eno) from Employee");
+		 List li = max_min.list();
+		 Object r[] = (Object[])li.get(0);
+		 System.out.println("Maximum Employee Number: "+r[0].toString());
+		 System.out.println("Minimum Employee Number: "+r[1].toString());
 	}
 }
