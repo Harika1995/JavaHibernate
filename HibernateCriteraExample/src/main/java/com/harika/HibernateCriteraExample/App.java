@@ -54,12 +54,48 @@ public class App
     		System.out.println(emp2.getEno()+"\t"+emp2.getFirstName()+"\t"+emp2.getLastName()+"\t"+emp2.getEmail());
     	}
     	System.out.println("Working with the where conditions HCQL");
+    	System.out.println("1. Working with the equal meathod in the HCQL");
     	Criteria c3 = ses.createCriteria(Employee.class);
-    	c3.add(Restrictions.and(Restrictions.like("lastName","Naidu"),Restrictions.le("eno",103)));
+    	c3.add(Restrictions.and(Restrictions.like("lastName","Naidu"),Restrictions.eq("eno",102)));
     	List <Employee>list3 = c3.list();
     	for(Employee emp3 : list3) {
     		System.out.println(emp3.getEno()+"\t"+emp3.getFirstName()+"\t"+emp3.getLastName()+"\t"+emp3.getEmail());
     	}
-    	
+    	System.out.println("2. Working with the lessthan and equal meathod in the HCQL");
+    	Criteria c4 = ses.createCriteria(Employee.class);
+    	c4.add(Restrictions.and(Restrictions.like("lastName","Naidu"),Restrictions.le("eno",103)));
+    	List <Employee>list4 = c4.list();
+    	for(Employee emp4 : list4) {
+    		System.out.println(emp4.getEno()+"\t"+emp4.getFirstName()+"\t"+emp4.getLastName()+"\t"+emp4.getEmail());
+    	}
+    	System.out.println("3. Working with the greaterthan and equal meathod in the HCQL");
+    	Criteria c5 = ses.createCriteria(Employee.class);
+    	c5.add(Restrictions.and(Restrictions.like("lastName","Naidu"),Restrictions.ge("eno",103)));
+    	List <Employee>list5 = c5.list();
+    	if(list5 == null) {
+	    	for(Employee emp5 : list5) {
+	    		System.out.println(emp5.getEno()+"\t"+emp5.getFirstName()+"\t"+emp5.getLastName()+"\t"+emp5.getEmail());
+	    	}
+    	}
+    	else
+    		System.out.println("There is no data in the list from the query");
+    	System.out.println("4. Working with the lessthan meathod in the HCQL");
+    	Criteria c6 = ses.createCriteria(Employee.class);
+    	c6.add(Restrictions.and(Restrictions.like("lastName","Naidu"),Restrictions.lt("eno",103)));
+    	List <Employee>list6 = c6.list();
+    	for(Employee emp6 : list6) {
+    		System.out.println(emp6.getEno()+"\t"+emp6.getFirstName()+"\t"+emp6.getLastName()+"\t"+emp6.getEmail());
+    	}
+    	System.out.println("5. Working with the greater than meathod in the HCQL");
+    	Criteria c7 = ses.createCriteria(Employee.class);
+    	c7.add(Restrictions.and(Restrictions.like("lastName","Naidu"),Restrictions.gt("eno",103)));
+    	List <Employee>list7 = c7.list();
+    	if(list7==null) {
+	    	for(Employee emp7 : list7) {
+	    		System.out.println(emp7.getEno()+"\t"+emp7.getFirstName()+"\t"+emp7.getLastName()+"\t"+emp7.getEmail());
+	    	}
+    	}
+    	else 
+    		System.out.println("There is no data in the list from the query");
     }
 }
