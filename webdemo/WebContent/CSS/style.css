@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+.center{
+	text-align: center; 
+	margin: auto;
+	width: 60%;
+	border: 3px solid #73AD21;
+	padding: 10px;
+}
+
+.button:hover{
+  border: 2px solid green;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.box{
+	
+}
