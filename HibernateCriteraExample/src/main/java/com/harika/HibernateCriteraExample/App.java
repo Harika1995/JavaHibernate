@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.harika.Pojo.Employee;
@@ -97,5 +99,18 @@ public class App
     	}
     	else 
     		System.out.println("There is no data in the list from the query");
+    	System.out.println("Working with the Projections");
+    	Criteria cri =  ses.createCriteria(Employee.class);
+    	cri.setProjection(Projections.projectionList().
+    			add(Projections.property("firstName")).add(Projections.property("lastName")));
+    	List <Object []> ll = cri.list();
+    	for(Object[] res:ll) {
+    		System.out.println(res[0]+"\t"+res[1]);
+    	}
+    	Criteria cc = ses.createCriteria(Employee.class);
+    	cc.setProjection(Projections.property("firstName"));
+    	 List l = cc.list();
+		 Object row = (Object)l.get(0);
+		 System.out.println(row.toString());
     }
 }
