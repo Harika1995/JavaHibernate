@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- id value should be unique, id value do not allow special characters, it is used to define reference of the beans classes
+	 -->
+	<bean id="harika" class="com.harika.Pojo.GreetingModel">
+		<property name="name">
+			<value>Good Evening Everyone</value>
+		</property>
+	</bean>
+	
+	<!-- We can write bean alias using the name attributes, Should not be unique, can use special characters
+		where these name attributes are also represented as the objects
+		But we never use name attribute in the bean tag. We prefer it to use in the MVC applications
+	 -->
+	 
+	 <bean  name="naidu, harikanaidu,chandana,mouni" class="com.harika.Pojo.GreetingModel">
+		<property name="name">
+			<value>Good Evening Everyone</value>
+		</property>
+	</bean>
+
+</beans>
