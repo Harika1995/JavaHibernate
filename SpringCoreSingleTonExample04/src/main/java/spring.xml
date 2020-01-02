@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- This is a singleTon object by default by creating single object to the controller class and calling it any times
+		This is gives the same reference object value..
+		If we want to use a different reference object we need to use the prototype as scope
+		
+		<bean id="harika" class="com.harika.Pojo.SpringBean" scope="prototype">
+	</bean>
+		
+	 -->
+	
+	<bean id="harika" class="com.harika.Pojo.SpringBean">
+	</bean>
+
+</beans>
