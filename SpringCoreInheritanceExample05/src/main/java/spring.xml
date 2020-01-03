@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="harika" class="com.harika.Pojo.Child">
+		<property value="100" name="money"/>
+		<property value="debtdocs" name="propDocs"/>
+		<property value="nodiseases" name="diseases"/>
+		<property value="smoking" name="badHabbits"/>
+		<property value="null" name="knowledge"/>
+	</bean>
+
+</beans>
