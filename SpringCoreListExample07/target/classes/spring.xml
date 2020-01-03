@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="ibref" class="com.harika.Pojo.InstituteBean">
+		<property name="name"><value>Harika Naidu</value></property>
+		<property name="facultyNames">
+			<list>
+				<value>Harika Naidu</value>
+				<value>Chandana Marreddy</value>
+				<value>Mouni Krishna Atluri</value>
+			</list>
+		</property>
+		<property name="courseNames">
+			<list>
+				<value>Java</value>
+				<value>Spring</value>
+				<value>Hibernate</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

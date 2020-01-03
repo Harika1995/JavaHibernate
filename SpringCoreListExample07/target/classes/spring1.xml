@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="student" class="com.harika.Pojo.Student">
+		<property name="sno"><value>1</value></property>
+		<property name="sname"><value>Harika Naidu</value></property>
+		<property name="fee"><value>1233</value></property>
+	</bean>
+	<bean id="student1" class="com.harika.Pojo.Student">
+		<property name="sno"><value>2</value></property>
+		<property name="sname"><value>Mouni Krishna Atluri</value></property>
+		<property name="fee"><value>1263</value></property>
+	</bean>
+	<bean id="student2" class="com.harika.Pojo.Student">
+		<property name="sno"><value>3</value></property>
+		<property name="sname"><value>Chandana Marreddy</value></property>
+		<property name="fee"><value>1333</value></property>
+	</bean>
+	
+	<bean id="clg" class="com.harika.Pojo.Collage">
+		<property name="name"><value>Northwest Missouri State University</value></property>
+		<property name="students">
+			<list>
+				<ref bean="student"/>
+				<ref bean="student1"/>
+				<ref bean="student2"/>
+			</list>
+		</property>
+	</bean>
+</beans>
