@@ -24,11 +24,13 @@ public class ViewServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		EmployeeDao eDao = new EmployeeDao();
 		List<Employee> allEmployee = eDao.getAllEmployees();
 		
-		request.setAttribute("employees",allEmployee);
+		//request.setAttribute("employees",allEmployee);
 		RequestDispatcher dispacher = request.getRequestDispatcher("View.jsp");
+		request.setAttribute("employees",allEmployee);
 		dispacher.forward(request, response);
 		
 	}

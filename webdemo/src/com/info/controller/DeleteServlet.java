@@ -25,8 +25,8 @@ public class DeleteServlet extends HttpServlet {
 		
 		
 		List<Employee> allEmployee= eDao.getAllEmployees();
-		request.setAttribute("employees",allEmployee);
 		RequestDispatcher dispacher = request.getRequestDispatcher("View.jsp");
+		request.setAttribute("employees",allEmployee);
 		dispacher.forward(request, response);
 	}
 }

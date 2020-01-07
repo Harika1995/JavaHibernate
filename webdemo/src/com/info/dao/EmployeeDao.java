@@ -71,11 +71,11 @@ public class EmployeeDao {
 			while(resultSet.next()) {
 				Employee employee = new Employee();
 				employee.setEno(resultSet.getInt("eno"));
-				employee.setFirstname(resultSet.getString("firstName"));
-				employee.setLastname(resultSet.getString("lastName"));
+				employee.setFirstname(resultSet.getString("firstname"));
+				employee.setLastname(resultSet.getString("lastname"));
 				employee.setGender(resultSet.getString("gender"));
 				employee.setSalary(resultSet.getDouble("salary"));
-				employee.setUsername(resultSet.getString("userName"));
+				employee.setUsername(resultSet.getString("username"));
 				
 				allEmployee.add(employee);
 			}
@@ -87,12 +87,11 @@ public class EmployeeDao {
 	
 	public void deleteEmployee(int eno) {
 		try {
-			String query="delete from employee where eno=?";
+			String query="delete from employee where eno = ?";
 
-			PreparedStatement pStatement = connection.prepareStatement("query");
+			PreparedStatement pStatement = connection.prepareStatement(query);
 			pStatement.setInt(1,eno);
 			pStatement.executeUpdate();
-			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
