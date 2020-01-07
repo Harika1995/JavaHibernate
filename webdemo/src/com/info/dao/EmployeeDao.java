@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.info.model.Employee;
 
@@ -58,6 +60,43 @@ public class EmployeeDao {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public List<Employee> getAllEmployees() {
+		List<Employee> allEmployee = new ArrayList<Employee>();
+		try {
+			String query = "select * from employee";
+			PreparedStatement pStatement = connection.prepareStatement(query);
+			ResultSet resultSet = pStatement.executeQuery();
+			while(resultSet.next()) {
+				Employee employee = new Employee();
+				employee.setEno(resultSet.getInt("eno"));
+				employee.setFirstname(resultSet.getString("firstName"));
+				employee.setLastname(resultSet.getString("lastName"));
+				employee.setGender(resultSet.getString("gender"));
+				employee.setSalary(resultSet.getDouble("salary"));
+				employee.setUsername(resultSet.getString("userName"));
+				
+				allEmployee.add(employee);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return allEmployee;
+	}
+	
+	public void deleteEmployee(int eno) {
+		try {
+			String query="delete from employee where eno=?";
+
+			PreparedStatement pStatement = connection.prepareStatement("query");
+			pStatement.setInt(1,eno);
+			pStatement.executeUpdate();
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

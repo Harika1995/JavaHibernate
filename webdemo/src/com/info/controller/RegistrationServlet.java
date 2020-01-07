@@ -40,7 +40,7 @@ public class RegistrationServlet extends HttpServlet {
 		
 		//After creating the employee. send the control to the login page
 		
-		RequestDispatcher dispacher = request.getRequestDispatcher("login.html");
+		RequestDispatcher dispacher = request.getRequestDispatcher("login.jsp");
 		dispacher.forward(request, response);
 		
 	}

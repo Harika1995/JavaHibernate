@@ -1,6 +1,7 @@
 package com.info.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,39 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.info.dao.EmployeeDao;
 import com.info.model.Employee;
 
-
-@WebServlet("/check.htm")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/getAll.htm")
+public class ViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+		doPost(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uname = request.getParameter("username");
-		String pwd = request.getParameter("password");
-		
-		Employee emp = new Employee();
-		emp.setUsername(uname);
-		emp.setPassword(pwd);
-		
 		EmployeeDao eDao = new EmployeeDao();
+		List<Employee> allEmployee = eDao.getAllEmployees();
 		
-		boolean result = eDao.checkEmployee(emp);
-		RequestDispatcher dispacher=null;
-		if(result) {
-			dispacher= request.getRequestDispatcher("Home.jsp");
-			request.setAttribute("user",uname.toUpperCase());
-		}
-		else {
-			dispacher=request.getRequestDispatcher("login.jsp");
-			request.setAttribute("message","Invalid Creadentials");
-			
-		}
+		request.setAttribute("employees",allEmployee);
+		RequestDispatcher dispacher = request.getRequestDispatcher("View.jsp");
 		dispacher.forward(request, response);
+		
 	}
 
 }
